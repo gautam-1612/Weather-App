@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: url(assets/photo-1561484930-998b6a7b22e8.avif) no-repeat center center / cover;
+
+}
+
+.logo {
+    margin: 30px;
+    font-weight: 600;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.mainUI {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box {
+    position: relative;
+    z-index: 1;
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box input {
+    font-size: 17px;
+    background-color: transparent;
+    border: 1px solid white;
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    color: white;
+    padding-left: 10px;
+    outline: none;
+}
+
+.box input::placeholder {
+    color: white;
+}
+
+.box img {
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 0px;
+}
+
+.box img:hover {
+    padding: 7px;
+    transition: 1.5 sec ease-in-out;
+}
+
+.content {
+    visibility: hidden;
+    max-width: 80vw;
+    max-height: 70vh;
+    background: rgba(255, 255, 255, 0.086);
+    border-radius: 10px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 30px;
+}
+
+.content img {
+    height: 60px;
+}
+
+.content p {
+    margin-top: 10px;
+}
+
+.content>* {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* responsiveness */
+
+@media screen and (max-width: 800px) {
+    .content {
+        max-width: 90vw;
+    }
+
+    .content img {
+        height: 40px;
+    }
+
+    .content>* {
+        width: 250px;
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+
+    .content>* {
+        width: 150px;
+    }
+
+    .box input {
+        font-size: 15px;
+        height: 30px;
+        width: 250px;
+    }
+
+    .box img {
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .content {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    .content>* {
+        width: 110px;
+    }
+}
