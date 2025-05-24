@@ -19,14 +19,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url(assets/ChatGPT\ Image\ May\ 23\,\ 2025\,\ 05_30_57\ PM.png) no-repeat center center / cover;
-    filter: blur(5px);
+    background: url(assets/ChatGPT\ Image\ May\ 23\,\ 2025\,\ 05_30_57\ PM-min.png) no-repeat center center / cover;
+    filter: blur(4px);
     z-index: -1;
     transform: scale(1.02);
 }
 
 .bodydark::before {
-    background: url(assets/ChatGPT\ Image\ May\ 24\,\ 2025\,\ 12_23_00\ PM.png) no-repeat center center / cover;
+    background: url(assets/ChatGPT\ Image\ May\ 24\,\ 2025\,\ 12_23_00\ PM-min.png) no-repeat center center / cover;
 }
 
 .header {
