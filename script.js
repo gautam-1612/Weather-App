@@ -94,7 +94,8 @@ let getweather = async (city, APIkey = "0f382574292908144e4e1afe27e24dae") => {
         "snow": "assets24/snowy.png",
         "mist": "assets24/snowy.png",
         "fog": "assets24/fog.png",
-        "thunderstorm": "assets24/thunder-storm.png"
+        "thunderstorm": "assets24/thunder-storm.png",
+        "haze": "assets24/foggy.png"
     };
 
     // Check if weather description exists in the map
