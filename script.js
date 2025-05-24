@@ -137,8 +137,8 @@ let flag = true;
 function roll() {
     let elem1 = document.querySelector(".ball");
     elem1.classList.toggle("rolled")
-    // let elem2 = document.querySelector(".citytext");
-    // elem2.classList.toggle("darkcitytext")
+    let elem2 = document.querySelector(".citytext");
+    elem2.classList.toggle("darkcitytext")
     let elem3 = document.querySelector(".box");
     elem3.classList.toggle("boxdark")
     let elem4 = document.querySelector(".body");
