@@ -13,40 +13,63 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="body">
     <div class="main"></div>
-    <div class="logo">Weather App</div>
+    <div class="header">
+        <div class="logo">Weather App</div>
+        <div class="mode">
+            <img src="assets24/dark-mode.png" onclick="roll()" alt="">
+            <div class="ball"></div>
+        </div>
+    </div>
     <div class="mainUI">
-    <div class="box">
-        <input type="text" class="citytext" placeholder="Enter The City ">
-        <img src="assets/search (1).png" class ="search" onclick="searchbutton()" alt="">
-    </div>
-    <div class="content">
-        <div class="location">
-            <img src="" alt="">
-            <p></p>
+        <div class="box">
+            <input type="text" class="citytext" placeholder="Enter The City ">
+            <img src="assets24/search-interface-symbol.png" class="searchh" onclick="searchbutton()" alt="">
         </div>
-        <div class="temp">
-            <img src="" alt="">
-            <p></p>
+        <div class="prevsearch">
+            <div class="search search1">
+                <p></p>
+            </div>
+            <div class="search search2">
+                <p></p>
+            </div>
+            <div class="search search3">
+                <p></p>
+            </div>
+            <div class="search search4">
+                <p></p>
+            </div>
+            <div class="search search5">
+                <p></p>
+            </div>
         </div>
-        <div class="description">
-            <img src="" alt="">
-            <p></p>
+        <div class="content">
+            <div class="location">
+                <img src="" alt="">
+                <p></p>
+            </div>
+            <div class="temp">
+                <img src="" alt="">
+                <p></p>
+            </div>
+            <div class="description">
+                <img src="" alt="">
+                <p></p>
+            </div>
+            <div class="humidity">
+                <img src="" alt="">
+                <p></p>
+            </div>
+            <div class="wind">
+                <img src="" alt="">
+                <p></p>
+            </div>
+            <div class="feels">
+                <img src="" alt="">
+                <p></p>
+            </div>
         </div>
-        <div class="humidity">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        <div class="wind">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        <div class="feels">
-            <img src="" alt="">
-            <p></p>
-        </div>
-    </div>
     </div>
     <script src="script.js"></script>
 </body>
