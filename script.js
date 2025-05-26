@@ -29,8 +29,8 @@ let searchbutton = () => {
 }
 
 let input = document.querySelector(".box").firstElementChild;
-input.addEventListener('keyup', (k)=>{
-    if(k.key == "Enter"){
+input.addEventListener('keyup', (k) => {
+    if (k.key == "Enter") {
         searchbutton()
     }
 })
@@ -71,7 +71,7 @@ let getweather = async (city, APIkey = "0f382574292908144e4e1afe27e24dae") => {
     //creating elements
     let location = document.querySelector(".location")
     location.firstElementChild.setAttribute("src", "assets24/pin.png")
-    location.getElementsByTagName("p")[0].textContent = `${data.name}`;
+    location.getElementsByTagName("p")[0].textContent = `${data.name} (${data.sys.country})`;
 
     let temp = document.querySelector(".temp")
     temp.firstElementChild.setAttribute("src", "assets24/hot.png")
@@ -95,7 +95,8 @@ let getweather = async (city, APIkey = "0f382574292908144e4e1afe27e24dae") => {
         "mist": "assets24/snowy.png",
         "fog": "assets24/fog.png",
         "thunderstorm": "assets24/thunder-storm.png",
-        "haze": "assets24/foggy.png"
+        "haze": "assets24/foggy.png",
+        "thunderstorm with heavy rain": "assets24/heavy-rain.png"
     };
 
     // Check if weather description exists in the map
@@ -106,7 +107,7 @@ let getweather = async (city, APIkey = "0f382574292908144e4e1afe27e24dae") => {
         description.firstElementChild.setAttribute("src", "assets24/sun.png");
     }
     description.getElementsByTagName("p")[0].textContent = `${data.weather[0].description}`;
-
+    description.getElementsByTagName("p")[0].style.textAlign = "center"
 
     let humidity = document.querySelector(".humidity")
     humidity.firstElementChild.setAttribute("src", "assets24/droplet.png")
