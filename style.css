@@ -40,7 +40,7 @@
     margin: 30px;
     font-weight: 600;
     font-size: 24px;
-    color: #20C997;
+    color: #19bc8b;
     text-decoration: underline;
 }
 
@@ -65,6 +65,42 @@
 
 .rolled {
     transform: translateX(29px);
+}
+
+.conversion {
+    position: relative;
+    width: 70px;
+    height: 12px;
+    top: 70px;
+    left: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: rgba(79, 76, 76, 0.826);
+    z-index: 11;
+    font-size: 12px;
+}
+
+.darkconversion {
+    color: rgba(206, 206, 206, 0.886);
+}
+
+.conversion>* {
+    width: 25px;
+    height: 20px;
+    text-align: center;
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.conversion>*:hover {
+    cursor: pointer;
+}
+
+.clicked {
+    border: 1px solid #19bc8b;
+    border-radius: 20px;
 }
 
 .mainUI {
@@ -194,7 +230,26 @@
 
 /* responsiveness */
 
+/* .conversion>*{
+    width: 25px;
+    height: 20px;
+    text-align: center;
+    transition: all 0.5s ease;
+} */
+
+@media screen and (max-width: 1100px) {
+    .conversion {
+        top: 50px;
+        left: 46.5%;
+    }
+}
+
 @media screen and (max-width: 800px) {
+    .conversion {
+        top: 20px;
+        left: 46.5%;
+    }
+
     .content {
         max-width: 90vw;
     }
@@ -237,6 +292,11 @@
 }
 
 @media screen and (max-width: 600px) {
+    .conversion {
+        top: 20px;
+        left: 43.3%;
+    }
+
     .content {
         flex-wrap: wrap;
         row-gap: 20px;
@@ -285,25 +345,29 @@
         top: 46px;
         left: 5px;
     }
+}
+@media screen and (max-width: 400px) {
+    .conversion {
+        top: 20px;
+         left: 42%;
+    }
 
-    @media screen and (max-width: 400px) {
-        .content {
-            flex-wrap: wrap;
-            row-gap: 10px;
-        }
+    .content {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
 
-        .content>* {
-            width: 110px;
-        }
+    .content>* {
+        width: 110px;
+    }
 
-        .prevsearch {
-            height: 35px;
-            max-width: 90vw;
-            gap: 10px;
-        }
+    .prevsearch {
+        height: 35px;
+        max-width: 90vw;
+         gap: 10px;
+    }
 
-        .ball {
-            top: 46px;
-        }
+    .ball {
+        top: 46px;
     }
 }

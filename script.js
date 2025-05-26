@@ -1,3 +1,20 @@
+let currentcity = null;
+
+//weather conversion
+let unit = 'c';
+let unitconversion = () => {
+    let elem = document.querySelector(".conversion");
+    elem.firstElementChild.classList.toggle("clicked")
+    elem.children[1].classList.toggle("clicked")
+    unit = (unit === 'c') ? 'f' : 'c';
+
+    if (currentcity) {
+        getweather(currentcity, unit);
+    }
+}
+
+
+
 // ########### Local storage ############
 
 let history = () => {
@@ -7,9 +24,9 @@ let history = () => {
         for (let i = 0; i < element.children.length; i++) {
             const child = element.children[i];
             if (i < placequeue.length) {
-                child.style.display = "flex";  // or "block" based on your layout
+                child.style.display = "flex";
                 child.firstElementChild.textContent = placequeue[i];
-                child.onclick = () => getweather(placequeue[i]);
+                child.onclick = () => getweather(placequeue[i], unit);
             } else {
                 child.style.display = "none";
             }
@@ -25,7 +42,7 @@ window.onload = history;
 
 let searchbutton = () => {
     let city = document.querySelector(".citytext").value;
-    getweather(city)
+    getweather(city, unit)
 }
 
 let input = document.querySelector(".box").firstElementChild;
@@ -36,9 +53,11 @@ input.addEventListener('keyup', (k) => {
 })
 
 
+
 // ########### API/Fetch weather ############
 
-let getweather = async (city, APIkey = "0f382574292908144e4e1afe27e24dae") => {
+let getweather = async (city, unit, APIkey = "0f382574292908144e4e1afe27e24dae") => {
+    currentcity = city;
     let data;
     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`)
     if (response.ok) {
@@ -75,7 +94,14 @@ let getweather = async (city, APIkey = "0f382574292908144e4e1afe27e24dae") => {
 
     let temp = document.querySelector(".temp")
     temp.firstElementChild.setAttribute("src", "assets24/hot.png")
-    temp.getElementsByTagName("p")[0].textContent = `Temp: ${data.main.temp}`;
+    if (unit === 'c') {
+        temp.getElementsByTagName("p")[0].textContent = `Temp: ${data.main.temp} C`;
+    }
+    else {
+        let value = data.main.temp * 9 / 5 + 32;
+        temp.getElementsByTagName("p")[0].textContent = `Temp: ${value.toFixed(1)} F`;
+    }
+
 
     //description 
     let description = document.querySelector(".description");
@@ -127,38 +153,41 @@ let getweather = async (city, APIkey = "0f382574292908144e4e1afe27e24dae") => {
     else {
         feels.firstElementChild.setAttribute("src", "assets24/gestures.png")
     }
-    feels.getElementsByTagName("p")[0].textContent = `Feels-like: ${data.main.feels_like}`;
 
+    if (unit === 'c') {
+        feels.getElementsByTagName("p")[0].textContent = `Feels like: ${data.main.feels_like} C`;
+    }
+    else {
+        let value = data.main.feels_like * 9 / 5 + 32;
+        feels.getElementsByTagName("p")[0].textContent = `Feels like: ${value.toFixed(1)} F`;
+    }
 }
 
 
 // ########### Enabling Theme ############
 
-
 let flag = true;
+
 function roll() {
-    let elem1 = document.querySelector(".ball");
-    elem1.classList.toggle("rolled")
-    let elem2 = document.querySelector(".citytext");
-    elem2.classList.toggle("darkcitytext")
-    let elem3 = document.querySelector(".box");
-    elem3.classList.toggle("boxdark")
-    let elem4 = document.querySelector(".body");
-    elem4.classList.toggle("bodydark")
-    let elem5 = document.querySelector(".content");
-    elem5.classList.toggle("contentdark")
+    document.querySelector(".ball").classList.toggle("rolled");
+    document.querySelector(".citytext").classList.toggle("darkcitytext");
+    document.querySelector(".box").classList.toggle("boxdark");
+    document.querySelector(".body").classList.toggle("bodydark");
+    document.querySelector(".content").classList.toggle("contentdark");
+    document.querySelector(".prevsearch").classList.toggle("darkprevsearch");
+    document.querySelector(".conversion").classList.toggle("darkconversion");
 
-    let elem6 = document.querySelector(".prevsearch");
-    elem6.classList.toggle("darkprevsearch")
+    document.querySelectorAll(".clicked").forEach(elem => {
+        elem.classList.toggle("darkclicked");
+    });
 
+    
     let searchimg = document.querySelector(".searchh");
     if (flag) {
-        searchimg.setAttribute("src", "assets24/search-interface-symbol (1).png")
+        searchimg.setAttribute("src", "assets24/search-interface-symbol (1).png");
         flag = false;
-    }
-    else {
-        searchimg.setAttribute("src", "assets24/search-interface-symbol.png")
+    } else {
+        searchimg.setAttribute("src", "assets24/search-interface-symbol.png");
         flag = true;
     }
 }
-
