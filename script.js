@@ -25,8 +25,9 @@ let history = () => {
             const child = element.children[i];
             if (i < placequeue.length) {
                 child.style.display = "flex";
-                child.firstElementChild.textContent = placequeue[i];
-                child.onclick = () => getweather(placequeue[i], unit);
+                let newvalue = placequeue[i].charAt(0).toUpperCase() + placequeue[i].slice(1);
+                child.firstElementChild.textContent = newvalue;
+                child.onclick = () => getweather(newvalue, unit);
             } else {
                 child.style.display = "none";
             }
@@ -41,7 +42,8 @@ window.onload = history;
 
 
 let searchbutton = () => {
-    let city = document.querySelector(".citytext").value;
+    let val = document.querySelector(".citytext").value;
+    let city = val.charAt(0).toUpperCase() + val.slice(1);
     getweather(city, unit)
 }
 
